@@ -34,6 +34,7 @@ function App() {
     setCurrency("EUR");
     setCurrentPlaceHolder("Wpisz ilość Euro");
     setInputValue("");
+    setMessageValue("Wybrałeś walutę Euro (EUR)");
     focus.current.focus();
   };
 
