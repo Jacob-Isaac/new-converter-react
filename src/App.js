@@ -1,11 +1,12 @@
 import "./App.css";
-import React, { useCallback } from "react";
+import React from "react";
 import Form from "./Form";
 import Container from "./Container";
 import Header from "./Header";
 import Footer from "./Footer";
 
 function App() {
+
   const focus = React.useRef(null);
   const [currentCurrency, setCurrency] = React.useState("PLN");
   const [currentPlaceHolder, setCurrentPlaceHolder] = React.useState(
@@ -15,6 +16,7 @@ function App() {
   const [messageValue, setMessageValue] = React.useState(
     "Wybrałeś walutę Złoty (PLN)"
   );
+
 
   const onZlotyButtonClick = () => {
     setCurrency("PLN");
@@ -38,6 +40,8 @@ function App() {
     focus.current.focus();
   };
 
+  
+
   return (
     <Container>
       <Header
@@ -55,6 +59,7 @@ function App() {
         onZlotyButtonClick={onZlotyButtonClick}
         onDollarButtonClick={onDollarButtonClick}
         onEuroButtonClick={onEuroButtonClick}
+        currentCurrency={currentCurrency}
       />
       <Footer />
     </Container>
