@@ -1,7 +1,7 @@
 import "./style.css";
 // import Form from "../Form";
 
-const Header = ({onZlotyButtonClick, onDollarButtonClick, onEuroButtonClick,}) => (
+const Header = ({onZlotyButtonClick, onDollarButtonClick, onEuroButtonClick}) => (
 <header className="navigation allBoxesProperties">
 <button onClick={onZlotyButtonClick} className="navigation__links"
   ><span>Złoty polski (PLN)</span></button>
@@ -9,8 +9,6 @@ const Header = ({onZlotyButtonClick, onDollarButtonClick, onEuroButtonClick,}) =
   <span>Euro (EUR)</span></button>
 <button onClick={onDollarButtonClick} className="navigation__links">
   <span>Dolar amerykański (USD)</span></button>
-  <button onClick={przycisk} className="navigation__links">
-  <span>przycisk</span></button>
 </header>
 
 );
