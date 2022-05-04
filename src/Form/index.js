@@ -13,26 +13,12 @@ const Form = ({
   resultValue,
 }) => {
 
-
-
   function onFormSubmit(event) {
         event.preventDefault();
         currencyMultiplierValue(currentCurrency);
-        //
+        focusCallback();
         // inputCallback("");
-        //focusCallback();
-        // console.log(currentCurrency);
-        // console.log(dividerEguro);
-        // console.log(multiplier);
-        // console.log(dividerDollar);
-        // const resultDisplay = document.querySelector(".js-formProps__result");
-        // currencyMultipliervalue(currentCurrency);
-        // currencyResult(currentCurrency);
-        // displayingResult(resultDisplay);
-        // resultTextSize(currency);
     }
-// to na dole  musi sie dziac w onZlotyButtonnCLick ogolnie w buttonach !!!!!
-
 
   return (
     <form onSubmit={onFormSubmit} className="allBoxesProperties">

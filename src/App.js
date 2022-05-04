@@ -73,15 +73,6 @@ function App() {
     setMessageValue("Wybrałeś walutę Euro (EUR)");
     focus.current.focus();
   };
-  const przycisk = () => {
- console.log(currentCurrency);
- console.log(result);
- console.log(resultSecond);
- console.log(resultValue);
-  };
-
-
-
 
   return (
     <Container>
@@ -89,7 +80,6 @@ function App() {
         onZlotyButtonClick={onZlotyButtonClick}
         onDollarButtonClick={onDollarButtonClick}
         onEuroButtonClick={onEuroButtonClick}
-        przycisk={przycisk}
       />
       <Form
         messageValue={messageValue}
@@ -98,9 +88,6 @@ function App() {
         inputCallback={(event) => setInputValue(event)}
         focus={focus}
         focusCallback={() => focus.current.focus()}
-        onZlotyButtonClick={onZlotyButtonClick}
-        onDollarButtonClick={onDollarButtonClick}
-        onEuroButtonClick={onEuroButtonClick}
         currentCurrency={currentCurrency}
         currencyMultiplierValue={currencyMultiplierValue}
         resultValue={resultValue}
