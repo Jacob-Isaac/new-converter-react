@@ -9,56 +9,20 @@ const Form = ({
   focus,
   focusCallback,
   currentCurrency,
+  currencyMultiplierValue,
+  resultValue,
 }) => {
 
-  const [result, setResult] = React.useState(0);
-  const [resultSecond, setResultSecond] = React.useState(0);
-  const dividerEuro = 4.7;
-  const dividerDollar = 4.28;
-  const [multiplier, setMultiplier] = React.useState(4.28);
-  const [resultValue, setResultValue] = React.useState(0);
 
-  const currencyMultiplierValue = (currentCurrency) => {
-    switch (currentCurrency) {
-      case "USD":
-        setMultiplier(4.28);
-        break;
-      case "EUR":
-        setMultiplier(4.7);
-        break;
-      default:
-        break;
-    }
-    currencyResult(currentCurrency);
-  };
-  const currencyResult = (currentCurrency) => {
-    if (currentCurrency === "PLN") {
-     setResult(inputValue / dividerDollar);
-    setResultSecond(inputValue / dividerEuro);
-     console.log(result);
-     console.log(resultSecond);
-    }
-    if (currentCurrency === "USD" || currentCurrency === "EUR") {
-      setResult(inputValue * multiplier);
-      console.log(result);
-    };
-    displayingResult();
-  };
-  const displayingResult = () => {
-    setResultValue(currentCurrency === "PLN"
-    ? `= ${result.toFixed(2)} USD \n lub = ${resultSecond.toFixed(2)} EUR`
-    : `= ${result.toFixed(2)} PLN`);
-    console.log(resultValue);
-    };  
 
   function onFormSubmit(event) {
         event.preventDefault();
         currencyMultiplierValue(currentCurrency);
         //
-        inputCallback("");
-        focusCallback();
+        // inputCallback("");
+        //focusCallback();
         // console.log(currentCurrency);
-        // console.log(dividerEuro);
+        // console.log(dividerEguro);
         // console.log(multiplier);
         // console.log(dividerDollar);
         // const resultDisplay = document.querySelector(".js-formProps__result");

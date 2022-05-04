@@ -16,7 +16,41 @@ function App() {
   const [messageValue, setMessageValue] = React.useState(
     "Wybrałeś walutę Złoty (PLN)"
   );
+  const [result, setResult] = React.useState(0);
+  const [resultSecond, setResultSecond] = React.useState(0);
+  const dividerEuro = 4.7;
+  const dividerDollar = 4.28;
+  const [multiplier, setMultiplier] = React.useState(4.28);
+  const [resultValue, setResultValue] = React.useState(0);
 
+  const currencyMultiplierValue = (currentCurrency) => {
+    switch (currentCurrency) {
+      case "USD":
+        setMultiplier(4.28);
+        break;
+      case "EUR":
+        setMultiplier(4.7);
+        break;
+      default:
+        break;
+    }
+    currencyResult(currentCurrency);
+  };
+  const currencyResult = (currentCurrency) => {
+    if (currentCurrency === "PLN") {
+     setResult(inputValue / dividerDollar);
+    setResultSecond(inputValue / dividerEuro);
+    }
+    if (currentCurrency === "USD" || currentCurrency === "EUR") {
+      setResult(inputValue * multiplier);
+    };
+    displayingResult(currentCurrency, result, resultSecond);
+  };
+  const displayingResult = (currentCurrency, result, resultSecond) => {
+    setResultValue(currentCurrency === "PLN"
+    ? `= ${result.toFixed(2)} USD \n lub = ${resultSecond.toFixed(2)} EUR`
+    : `= ${result.toFixed(2)} PLN`);
+    };  
 
   const onZlotyButtonClick = () => {
     setCurrency("PLN");
@@ -39,8 +73,15 @@ function App() {
     setMessageValue("Wybrałeś walutę Euro (EUR)");
     focus.current.focus();
   };
+  const przycisk = () => {
+ console.log(currentCurrency);
+ console.log(result);
+ console.log(resultSecond);
+ console.log(resultValue);
+  };
 
-  
+
+
 
   return (
     <Container>
@@ -48,6 +89,7 @@ function App() {
         onZlotyButtonClick={onZlotyButtonClick}
         onDollarButtonClick={onDollarButtonClick}
         onEuroButtonClick={onEuroButtonClick}
+        przycisk={przycisk}
       />
       <Form
         messageValue={messageValue}
@@ -60,6 +102,8 @@ function App() {
         onDollarButtonClick={onDollarButtonClick}
         onEuroButtonClick={onEuroButtonClick}
         currentCurrency={currentCurrency}
+        currencyMultiplierValue={currencyMultiplierValue}
+        resultValue={resultValue}
       />
       <Footer />
     </Container>
