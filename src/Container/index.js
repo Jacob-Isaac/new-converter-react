@@ -1,6 +1,6 @@
 
 const Container = ({ children }) => (
-    <main className="AllBoxesProperties">
+    <main className="flex">
         {children}
     </main>
 );

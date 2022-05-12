@@ -9,19 +9,19 @@ const Form = ({
   focus,
   focusCallback,
   currentCurrency,
-  currencyMultiplierValue,
+  currencyResult,
   resultValue,
 }) => {
 
   function onFormSubmit(event) {
-        event.preventDefault();
-        currencyMultiplierValue(currentCurrency);
-        focusCallback();
-        // inputCallback("");
-    }
+    event.preventDefault();
+    currencyResult(currentCurrency);
+    focusCallback();
+    // inputCallback("");
+  }
 
   return (
-    <form onSubmit={onFormSubmit} className="allBoxesProperties">
+    <form onSubmit={onFormSubmit} className="centerBoxProperties">
       <p name="text" className="formProps">
         {messageValue}
       </p>

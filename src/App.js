@@ -16,41 +16,29 @@ function App() {
   const [messageValue, setMessageValue] = React.useState(
     "Wybrałeś walutę Złoty (PLN)"
   );
-  const [result, setResult] = React.useState(0);
-  const [resultSecond, setResultSecond] = React.useState(0);
   const dividerEuro = 4.7;
   const dividerDollar = 4.28;
   const [multiplier, setMultiplier] = React.useState(4.28);
   const [resultValue, setResultValue] = React.useState(0);
 
-  const currencyMultiplierValue = (currentCurrency) => {
-    switch (currentCurrency) {
-      case "USD":
-        setMultiplier(4.28);
-        break;
-      case "EUR":
-        setMultiplier(4.7);
-        break;
-      default:
-        break;
-    }
-    currencyResult(currentCurrency);
-  };
   const currencyResult = (currentCurrency) => {
+
     if (currentCurrency === "PLN") {
-     setResult(inputValue / dividerDollar);
-    setResultSecond(inputValue / dividerEuro);
+      displayingResult(currentCurrency, inputValue / dividerDollar, inputValue / dividerEuro);
     }
-    if (currentCurrency === "USD" || currentCurrency === "EUR") {
-      setResult(inputValue * multiplier);
-    };
-    displayingResult(currentCurrency, result, resultSecond);
+    if (currentCurrency === "USD") {
+      displayingResult(currentCurrency, inputValue * multiplier);
+    }
+    if (currentCurrency === "EUR") {
+      displayingResult(currentCurrency, inputValue * multiplier);
+    }
   };
+
   const displayingResult = (currentCurrency, result, resultSecond) => {
     setResultValue(currentCurrency === "PLN"
-    ? `= ${result.toFixed(2)} USD \n lub = ${resultSecond.toFixed(2)} EUR`
-    : `= ${result.toFixed(2)} PLN`);
-    };  
+      ? `= ${result.toFixed(2)} USD \n lub = ${resultSecond.toFixed(2)} EUR`
+      : `= ${result.toFixed(2)} PLN`);
+  };
 
   const onZlotyButtonClick = () => {
     setCurrency("PLN");
@@ -61,6 +49,7 @@ function App() {
   };
   const onDollarButtonClick = () => {
     setCurrency("USD");
+    setMultiplier(4.28)
     setCurrentPlaceHolder("Wpisz ilość Dolarów");
     setInputValue("");
     setMessageValue("Wybrałeś walutę Dolar (USD)");
@@ -68,6 +57,7 @@ function App() {
   };
   const onEuroButtonClick = () => {
     setCurrency("EUR");
+    setMultiplier(4.7)
     setCurrentPlaceHolder("Wpisz ilość Euro");
     setInputValue("");
     setMessageValue("Wybrałeś walutę Euro (EUR)");
@@ -89,7 +79,7 @@ function App() {
         focus={focus}
         focusCallback={() => focus.current.focus()}
         currentCurrency={currentCurrency}
-        currencyMultiplierValue={currencyMultiplierValue}
+        currencyResult={currencyResult}
         resultValue={resultValue}
       />
       <Footer />
