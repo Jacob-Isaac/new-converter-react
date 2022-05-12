@@ -1,38 +1,50 @@
 a:link {
-    color: rgb(21, 9, 153);
-  }
-  .footerBox__listStyle {
-    margin: 5px 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-  }
-  .footerBox__decoration {
-    text-decoration: none; 
-  }
-  .footerBox__decoration--textBorder {
-    margin-left: 5px;
-    margin-bottom: -4px;
-  }
-  .footerBox__decoration:visited {
-    color: black;
-  }
-  .footerBox {
-    margin-bottom: 40px;
-  }
-  .footerBox__copyRight {
-    margin-top: 20px;
-    font-size: 12px;
-    margin-bottom: 0px;
-  }
+  color: rgb(21, 9, 153);
+}
+
+.footerBox__listStyle {
+  margin: 5px 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.footerBox__decoration {
+  text-decoration: none;
+}
+
+.footerBox__decoration--textBorder {
+  margin-left: 5px;
+  margin-bottom: -4px;
+}
+
+.footerBox__decoration:visited {
+  color: black;
+}
+
+.footerBox__copyRight {
+  margin-top: 20px;
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+
+.footerBox__contact {
+  line-height: 1.2;
+  font-size: 10px;
+  margin-right: 20px;
+}
+
+@media (max-width: 650px) {
   .footerBox__contact {
-    line-height: 1.2;
-    font-size: 10px;
-    margin-right: 20px;
+    margin-right: 10%;
   }
-  @media (max-width: 650px){
-    .footerBox__contact {
-      margin-right: 10%;
-    }
-  }
-  
+}
+
+.footerBoxProperties {
+  text-align: center;
+  box-shadow: 0.1px 0.1px 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(255 255 255 / 80%);
+
+}
