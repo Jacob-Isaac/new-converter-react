@@ -1,4 +1,5 @@
 import React from "react";
+import useTime from "./date";
 import "./style.css";
 
 const Form = ({
@@ -13,6 +14,7 @@ const Form = ({
   resultValue,
 }) => {
 
+
   function onFormSubmit(event) {
     event.preventDefault();
     currencyResult(currentCurrency);
@@ -20,8 +22,15 @@ const Form = ({
     // inputCallback("");
   }
 
+  const Clock = () => {
+    const date = useTime();
+    let formatedDate = `${date.toLocaleTimeString()}`
+    return <p name="text" className="formProps">Aktualna godzina: {formatedDate}</p>
+  }
+
   return (
     <form onSubmit={onFormSubmit} className="centerBoxProperties">
+    <Clock/>
       <p name="text" className="formProps">
         {messageValue}
       </p>

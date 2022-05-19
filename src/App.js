@@ -10,7 +10,7 @@ function App() {
   const focus = React.useRef(null);
   const [currentCurrency, setCurrency] = React.useState("PLN");
   const [currentPlaceHolder, setCurrentPlaceHolder] = React.useState(
-    "Wybrałeś walutę Złoty (PLN)"
+    "Wpisz ilość Złotych"
   );
   const [inputValue, setInputValue] = React.useState("");
   const [messageValue, setMessageValue] = React.useState(
@@ -20,6 +20,7 @@ function App() {
   const dividerDollar = 4.28;
   const [multiplier, setMultiplier] = React.useState(4.28);
   const [resultValue, setResultValue] = React.useState(0);
+  
 
   const currencyResult = (currentCurrency) => {
 
@@ -46,7 +47,9 @@ function App() {
     setInputValue("");
     setMessageValue("Wybrałeś walutę Złoty (PLN)");
     focus.current.focus();
+   
   };
+
   const onDollarButtonClick = () => {
     setCurrency("USD");
     setMultiplier(4.28)
