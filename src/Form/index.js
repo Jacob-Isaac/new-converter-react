@@ -1,8 +1,8 @@
 import React from "react";
 import useTime from "./date";
 import "./style.css";
-import {format} from 'date-fns';
-import {pl} from 'date-fns/locale';
+import { format } from 'date-fns';
+import { pl } from 'date-fns/locale';
 
 const Form = ({
   currentPlaceHolder,
@@ -32,7 +32,7 @@ const Form = ({
   return (
 
     <form onSubmit={onFormSubmit} className="centerBoxProperties">
-      <p name="text" className="formProps"><WeekDay/>, godzina: {formatedDate}</p>
+      <p name="text" className="formProps"><WeekDay />, godzina: {formatedDate}</p>
       <p name="text" className="formProps">
         {messageValue}
       </p>
