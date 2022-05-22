@@ -23,7 +23,7 @@ const Footer = () => (
           >+48 666-666-666</span></a>
       </li>
       <li className="footerBox__listStyle">
-        
+
         <a
           target="_blank"
           rel="noreferrer noopener"

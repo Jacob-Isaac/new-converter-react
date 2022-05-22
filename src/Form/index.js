@@ -14,23 +14,26 @@ const Form = ({
   resultValue,
 }) => {
 
+  const date = useTime();
+  let formatedDate = `${date.toLocaleTimeString()}`;
 
   function onFormSubmit(event) {
     event.preventDefault();
     currencyResult(currentCurrency);
     focusCallback();
-    // inputCallback("");
   }
 
-  const Clock = () => {
-    const date = useTime();
-    let formatedDate = `${date.toLocaleTimeString()}`
-    return <p name="text" className="formProps">Aktualna godzina: {formatedDate}</p>
-  }
+  // const Clock = () => {
+  //   const date = useTime();
+  //   let formatedDate = `${date.toLocaleTimeString()}`
+  //   return <p name="text" className="formProps">Aktualna godzina: {formatedDate}</p>
+  // } 
+  // sposób na wiekszy porządek - clock tutaj i w form tylko wywołanie
 
   return (
     <form onSubmit={onFormSubmit} className="centerBoxProperties">
-    <Clock/>
+      {/* <Clock/> */}
+      <p name="text" className="formProps">Aktualna godzina: {formatedDate}</p>
       <p name="text" className="formProps">
         {messageValue}
       </p>

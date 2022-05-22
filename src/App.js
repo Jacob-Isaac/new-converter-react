@@ -20,7 +20,7 @@ function App() {
   const dividerDollar = 4.28;
   const [multiplier, setMultiplier] = React.useState(4.28);
   const [resultValue, setResultValue] = React.useState(0);
-  
+
 
   const currencyResult = (currentCurrency) => {
 
@@ -47,7 +47,7 @@ function App() {
     setInputValue("");
     setMessageValue("Wybrałeś walutę Złoty (PLN)");
     focus.current.focus();
-   
+
   };
 
   const onDollarButtonClick = () => {
