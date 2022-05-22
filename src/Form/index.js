@@ -58,7 +58,9 @@ const Form = ({
       <p className="formProps">
         <button className="formProps__resultButton">WYLICZ !</button>
       </p>
-      <p id="TU JEST WYNIK" className="formProps formProps__textProps">{resultValue}</p>
+      <p style={{
+      'white-space': 'pre-wrap'
+      }} id="TU JEST WYNIK" className="formProps formProps__textProps">{resultValue}</p>
       <p>Według średniego kursu NBP z dn. 01.02.2022</p>
     </form>
   );
