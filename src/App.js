@@ -19,7 +19,7 @@ function App() {
   const dividerEuro = 4.7;
   const dividerDollar = 4.28;
   const [multiplier, setMultiplier] = React.useState(4.28);
-  const [resultValue, setResultValue] = React.useState(0);
+  const [resultValue, setResultValue] = React.useState("=");
 
 
   const currencyResult = (currentCurrency) => {

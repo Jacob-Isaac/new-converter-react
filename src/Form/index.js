@@ -1,6 +1,8 @@
 import React from "react";
 import useTime from "./date";
 import "./style.css";
+import {format} from 'date-fns';
+import {pl} from 'date-fns/locale';
 
 const Form = ({
   currentPlaceHolder,
@@ -17,23 +19,20 @@ const Form = ({
   const date = useTime();
   let formatedDate = `${date.toLocaleTimeString()}`;
 
+  const WeekDay = () => {
+    return format(new Date(), "'Dzisiaj jest' eeee", { locale: pl })
+  }
+
   function onFormSubmit(event) {
     event.preventDefault();
     currencyResult(currentCurrency);
     focusCallback();
   }
 
-  // const Clock = () => {
-  //   const date = useTime();
-  //   let formatedDate = `${date.toLocaleTimeString()}`
-  //   return <p name="text" className="formProps">Aktualna godzina: {formatedDate}</p>
-  // } 
-  // sposób na wiekszy porządek - clock tutaj i w form tylko wywołanie
-
   return (
+
     <form onSubmit={onFormSubmit} className="centerBoxProperties">
-      {/* <Clock/> */}
-      <p name="text" className="formProps">Aktualna godzina: {formatedDate}</p>
+      <p name="text" className="formProps"><WeekDay/>, godzina: {formatedDate}</p>
       <p name="text" className="formProps">
         {messageValue}
       </p>
