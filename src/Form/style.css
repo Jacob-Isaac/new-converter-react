@@ -20,7 +20,7 @@
 
 @media (min-width: 800px) {
   .formProps__textProps {
-    font-size: 40px;
+    font-size: 30px;
   }
 }
 
@@ -36,7 +36,7 @@
 }
 
 .formProps__input {
- width: 40%;
+  width: 40%;
   border-radius: 5px;
 }
 
