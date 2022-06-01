@@ -25,9 +25,11 @@ body {
   background-color: rgb(255 255 255 / 80%);
   border-radius: 17px;
   align-self: center;
+  width: 70%;
+  min-width: 250px;
 }
 
-@media (min-width: 770px) {
+@media (min-width: 800px) {
   .centerBoxProperties {
     width: 750px;
   }

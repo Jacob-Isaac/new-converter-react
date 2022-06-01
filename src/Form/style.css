@@ -6,18 +6,6 @@
   margin-top: 5%;
 }
 
-@media (max-width: 600px) {
-  .formProps__textProps {
-    font-size: 20px;
-  }
-}
-
-@media (min-width: 600px) {
-  .formProps__textProps {
-    font-size: 20px;
-  }
-}
-
 @media (min-width: 800px) {
   .formProps__textProps {
     font-size: 30px;
@@ -27,12 +15,6 @@
 .formProps__textPropsSmaller {
   margin-top: 5%;
   font-size: 20px;
-}
-
-@media (max-width: 700px) {
-  .formProps__textPropsSmaller {
-    font-size: 10px;
-  }
 }
 
 .formProps__input {
@@ -51,6 +33,16 @@
   transition: all 0.3s ease-in-out;
 }
 
-.formProps__resultButton:hover {
+
+
+@media (max-width: 800px) {
+  .formProps__resultButton {
+    transform: scale(1.8); 
+  }
+}
+@media (min-width: 800px) {
+  .formProps__resultButton:hover {
   cursor: pointer;
+   transform: scale(1.1); 
+ } 
 }
