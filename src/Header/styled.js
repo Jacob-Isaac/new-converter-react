@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import logo from "./logo.png";
 
 
 export  const Navigation = styled.div`
@@ -23,6 +24,10 @@ export  const Navigation = styled.div`
 export  const NavigationLogo = styled.button`    
         background-color: transparent;
         border: none;
+`;
+
+export  const LogoImg = styled.img`    
+        content:url("${logo}");
 `;
 
 export  const NavigationLinks = styled.button` 

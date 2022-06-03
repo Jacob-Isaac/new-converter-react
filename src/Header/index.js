@@ -1,12 +1,12 @@
 
-import {Navigation, NavigationLogo, NavigationLinks} from "./styled.js";
+import {Navigation, NavigationLogo, NavigationLinks, LogoImg} from "./styled.js";
 
 const Header = ({ onZlotyButtonClick, onDollarButtonClick, onEuroButtonClick }) => (
   <header>
     <Navigation>
 
-      <NavigationLogo><img alt="logo" src={require('./logo.png')} width="100px"
-        height="40px"/></NavigationLogo>
+      <NavigationLogo><LogoImg alt="logo" width ="100px" 
+        height ="40px"/></NavigationLogo>
       <NavigationLinks onClick={onZlotyButtonClick}>
         <span>Złoty polski (PLN)</span></NavigationLinks>
         <NavigationLinks onClick={onEuroButtonClick}>

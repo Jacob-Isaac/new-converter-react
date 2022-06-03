@@ -1,8 +1,9 @@
 import React from "react";
 import useTime from "./date";
-import "./style.css";
 import { format } from 'date-fns';
 import { pl } from 'date-fns/locale';
+import { FormResult, FormText, FormButton, FormInput } from "./styled.js";
+import { CenterBoxProperties } from "../styled.js";
 
 const Form = ({
   currentPlaceHolder,
@@ -31,19 +32,18 @@ const Form = ({
 
   return (
 
-    <form onSubmit={onFormSubmit} className="centerBoxProperties">
-      <p name="text" className="formProps"><WeekDay />, godzina: {formatedDate}</p>
-      <p name="text" className="formProps">
+    <CenterBoxProperties onSubmit={onFormSubmit}>
+      <FormText name="text"><WeekDay />, godzina: {formatedDate}</FormText>
+      <FormText name="text">
         {messageValue}
-      </p>
-      <p className="formProps__inputSection">
+      </FormText>
+      <p>
         <label>
           *&nbsp;&nbsp;
-          <input
+          <FormInput
             autoFocus
             ref={focus}
             name="input"
-            className="formProps__input"
             value={inputValue}
             onChange={(event) => inputCallback(event.target.value)}
             type="number"
@@ -52,17 +52,17 @@ const Form = ({
             placeholder={currentPlaceHolder}
             step="0.01"
             required
-          ></input>
+          ></FormInput>
         </label>
       </p>
-      <p className="formProps">
-        <button className="formProps__resultButton">WYLICZ !</button>
-      </p>
-      <p style={{
+      <FormText>
+        <FormButton>WYLICZ !</FormButton>
+      </FormText>
+      <FormResult style={{
       'white-space': 'pre-wrap'
-      }} id="TU JEST WYNIK" className="formProps formProps__textProps">{resultValue}</p>
+      }} id="TU JEST WYNIK">{resultValue}</FormResult> 
       <p>Według średniego kursu NBP z dn. 01.02.2022</p>
-    </form>
+    </CenterBoxProperties>
   );
 };
 
