@@ -1,5 +1,4 @@
 
-import "./colorChange.css"
 import React from "react";
 import { Link, LinkText, ListStyle, CopyRight, Contact, Properties, Img } from "./styled.js";
 
@@ -8,13 +7,13 @@ import { Link, LinkText, ListStyle, CopyRight, Contact, Properties, Img } from "
 
 const Footer = () => {
 
-  const [visitedLink, setVisitedLink] = React.useState(false);
-  const visited = () => {
-    setVisitedLink(true);
+  const [visitedMail, setVisitedMail] = React.useState(false);
+  const visitedMailAdress = () => {
+    setVisitedMail(true);
   };
-  const [secondVisitedLink, setSecondVisitedLink] = React.useState(false);
-  const secondVisited = () => {
-    setSecondVisitedLink(true);
+  const [visitedTel, setVisitedTel] = React.useState(false);
+  const visitedTelephone = () => {
+    setVisitedTel(true);
   };
 
 
@@ -26,11 +25,8 @@ const Footer = () => {
         <ListStyle>
           e-mail:
           <Link
-            onClick={visited}
-            className={`${visitedLink === true
-              ? "black"
-              : "blue"
-              }`}
+            onClick={visitedMailAdress}
+            visitedM={visitedMail}
             href="mailto:jacob.69.isaac@gmail.com"
           >
             <LinkText>jacob.69.isaac@gmail.com</LinkText>
@@ -39,13 +35,12 @@ const Footer = () => {
         </ListStyle>
         <ListStyle>
           tel:
-          <Link 
-            onClick={secondVisited}
-            className={`${secondVisitedLink === true
-              ? "black"
-              : "blue"
-              }`}
-            href="tel:+48.666(666)666"><LinkText>+48 666-666-666</LinkText></Link>
+          <Link
+            onClick={visitedTelephone}
+            visitedT={visitedTel}
+            href="tel:+48.666(666)666">
+            <LinkText>+48 666-666-666</LinkText>
+          </Link>
         </ListStyle>
         <ListStyle>
 
@@ -55,8 +50,7 @@ const Footer = () => {
             href="https://www.facebook.com/nowakowski.malarstwo"
             title="Otwórz w nowej karcie">
             <Img
-              className="footerBox__decoration--textBorder"
-              src={require('./facebook.png')}
+              // src={require('./facebook.png')} - inny sposób na implementacje img
               alt="Jakub Nowakowski"
             />
           </Link>
