@@ -1,7 +1,11 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const FormText = styled.p` 
   margin-bottom: 30px;
+  ${({dateText}) => dateText && css`
+font-family: 'Courier New', Courier, monospace;
+font-size: 14px;
+  `}
 `;
 
 export const FormResult = styled.p` 

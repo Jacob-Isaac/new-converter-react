@@ -20,9 +20,7 @@ const Form = ({
   const date = useCurrentDate();
   let formatedDate = `${date.toLocaleTimeString()}`;
 
-  const WeekDay = () => {
-    return format(new Date(), "'Dzisiaj jest' eeee", { locale: pl })
-  }
+  const WeekDay = () => format(new Date(), "'Dzisiaj jest' eeee", { locale: pl });
 
   function onFormSubmit(event) {
     event.preventDefault();
@@ -33,7 +31,7 @@ const Form = ({
   return (
 
     <CenterBoxProperties onSubmit={onFormSubmit}>
-      <FormText name="text"><WeekDay />, godzina: {formatedDate}</FormText>
+      <FormText dateText name="text"><WeekDay/>, godzina: {formatedDate}</FormText>
       <FormText name="text">
         {messageValue}
       </FormText>
