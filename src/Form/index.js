@@ -1,5 +1,5 @@
 import React from "react";
-import useCurrentDate from "./date";
+import useCurrentDate from "./useCurrentDate";
 import { format } from 'date-fns';
 import { pl } from 'date-fns/locale';
 import { FormResult, FormText, FormButton, FormInput } from "./styled.js";
