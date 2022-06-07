@@ -1,5 +1,5 @@
 import React from "react";
-import useTime from "./date";
+import useCurrentDate from "./date";
 import { format } from 'date-fns';
 import { pl } from 'date-fns/locale';
 import { FormResult, FormText, FormButton, FormInput } from "./styled.js";
@@ -17,7 +17,7 @@ const Form = ({
   resultValue,
 }) => {
 
-  const date = useTime();
+  const date = useCurrentDate();
   let formatedDate = `${date.toLocaleTimeString()}`;
 
   const WeekDay = () => {

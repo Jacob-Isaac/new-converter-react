@@ -1,6 +1,6 @@
 import React from "react";
 
-const useTime = () => {
+const useCurrentDate = () => {
   const [time, setTime] = React.useState(new Date());
 
   React.useEffect(() => {
@@ -15,4 +15,4 @@ const useTime = () => {
   return time;
 };
 
-export default useTime;
+export default useCurrentDate;
