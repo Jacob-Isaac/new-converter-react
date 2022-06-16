@@ -39,3 +39,6 @@ export const FormButton = styled.button`
  } 
 }
 `;
+export const Error = styled.p` 
+ color: #B50000;
+`;
