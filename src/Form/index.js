@@ -1,9 +1,11 @@
 import React from "react";
 import useCurrentDate from "./useCurrentDate";
+import useCurrencyRates from "../currencyRates";
 import { format } from 'date-fns';
 import { pl } from 'date-fns/locale';
-import { FormResult, FormText, FormButton, FormInput } from "./styled.js";
+import { FormResult, FormText, FormButton, FormInput, Error } from "./styled.js";
 import { CenterBoxProperties } from "../styled.js";
+
 
 const Form = ({
   currentPlaceHolder,
@@ -22,16 +24,17 @@ const Form = ({
 
   const WeekDay = () => format(new Date(), "'Dzisiaj jest' eeee", { locale: pl });
 
-  function onFormSubmit(event) {
-    event.preventDefault();
-    currencyResult(currentCurrency);
-    focusCallback();
-  }
+  const {messageFromApi} = useCurrencyRates();
+let content = "";
 
-  return (
+switch (messageFromApi) {
 
-    <CenterBoxProperties onSubmit={onFormSubmit}>
-      <FormText dateText name="text"><WeekDay/>, godzina: {formatedDate}</FormText>
+  case "loading":
+    content = <p>Ładowanie</p>
+    break;
+
+    case "ok":
+      content =  <><FormText dateText name="text"><WeekDay/>, godzina: {formatedDate}</FormText>
       <FormText name="text">
         {messageValue}
       </FormText>
@@ -60,6 +63,30 @@ const Form = ({
       'white-space': 'pre-wrap'
       }} id="TU JEST WYNIK">{resultValue}</FormResult> 
       <p>Według średniego kursu NBP z dn. 01.02.2022</p>
+      </>
+    break;
+
+    default:
+      content = 
+        <Error>
+        SERWER NIEOSIĄGALNY
+        <br/><br/>
+        Być może nie masz dostępu do internetu, lub baza danych dla walut jest 'offline'
+        <br/><br/>
+        spróbuj później
+        </Error>; 
+}
+
+  function onFormSubmit(event) {
+    event.preventDefault();
+    currencyResult(currentCurrency);
+    focusCallback();
+  }
+
+  return (
+
+    <CenterBoxProperties onSubmit={onFormSubmit}>
+     {content}
     </CenterBoxProperties>
   );
 };
