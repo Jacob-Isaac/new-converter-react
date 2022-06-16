@@ -1,9 +1,13 @@
+// poprawić stylowanie (nazwy) oraz formatowanie
+
+
 import "./App.css";
 import React from "react";
 import Form from "./Form";
 import Container from "./Container";
 import Header from "./Header";
 import Footer from "./Footer";
+import useCurrencyRates from "./currencyRates.js";
 
 function App() {
 
@@ -16,22 +20,19 @@ function App() {
   const [messageValue, setMessageValue] = React.useState(
     "Wybrałeś walutę Złoty (PLN)"
   );
-  const dividerEuro = 4.7;
-  const dividerDollar = 4.28;
-  const [multiplier, setMultiplier] = React.useState(4.28);
+  const {multiplierDollar, multiplierEuro} = useCurrencyRates();
   const [resultValue, setResultValue] = React.useState("=");
-
-
+  
   const currencyResult = (currentCurrency) => {
 
     if (currentCurrency === "PLN") {
-      displayingResult(currentCurrency, inputValue / dividerDollar, inputValue / dividerEuro);
+      displayingResult(currentCurrency, inputValue * multiplierDollar, inputValue * multiplierEuro);
     }
     if (currentCurrency === "USD") {
-      displayingResult(currentCurrency, inputValue * multiplier);
+      displayingResult(currentCurrency, inputValue / multiplierDollar);
     }
     if (currentCurrency === "EUR") {
-      displayingResult(currentCurrency, inputValue * multiplier);
+      displayingResult(currentCurrency, inputValue / multiplierEuro);
     }
   };
 
@@ -47,12 +48,10 @@ function App() {
     setInputValue("");
     setMessageValue("Wybrałeś walutę Złoty (PLN)");
     focus.current.focus();
-
   };
 
   const onDollarButtonClick = () => {
     setCurrency("USD");
-    setMultiplier(4.28)
     setCurrentPlaceHolder("Wpisz ilość Dolarów");
     setInputValue("");
     setMessageValue("Wybrałeś walutę Dolar (USD)");
@@ -60,7 +59,6 @@ function App() {
   };
   const onEuroButtonClick = () => {
     setCurrency("EUR");
-    setMultiplier(4.7)
     setCurrentPlaceHolder("Wpisz ilość Euro");
     setInputValue("");
     setMessageValue("Wybrałeś walutę Euro (EUR)");
