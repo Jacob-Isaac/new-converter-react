@@ -5,8 +5,8 @@ const Header = ({ onZlotyButtonClick, onDollarButtonClick, onEuroButtonClick }) 
   <header>
     <Navigation>
 
-      <NavigationLogo><LogoImg alt="logo" width ="100px" 
-        height ="40px"/></NavigationLogo>
+      <LogoImg alt="logo" width ="100" 
+        height ="40"/>
       <NavigationLinks onClick={onZlotyButtonClick}>
         <span>Złoty polski (PLN)</span></NavigationLinks>
         <NavigationLinks onClick={onEuroButtonClick}>

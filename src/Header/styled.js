@@ -21,13 +21,8 @@ export  const Navigation = styled.div`
     }
 `;
 
-export  const NavigationLogo = styled.button`    
-        background-color: transparent;
-        border: none;
-`;
-
-export  const LogoImg = styled.img`    
-        content:url("${logo}");
+export  const LogoImg = styled.img`  
+content:url("${logo}");
 `;
 
 export  const NavigationLinks = styled.button` 
