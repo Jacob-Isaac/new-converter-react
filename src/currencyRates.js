@@ -3,37 +3,40 @@ import React from "react";
 
 const useCurrencyRates = () => {
 
-  const [multiplierDollar, setMultiplierDollar] = React.useState();
-  const [multiplierEuro, setMultiplierEuro] = React.useState();
+  const multiplierDollar = JSON.parse(localStorage.getItem("usd"));
+  const multiplierEuro= JSON.parse(localStorage.getItem("eur"));
   const [messageFromApi, setMessageFromApi] = React.useState("loading");
- 
 
   React.useEffect(() => {
-
-    fetch('https://api.exchangerate.host/latest?base=PLN&symbols=EUR,USD,PLN')
+    fetch('https://api.xchangerate.host/latest?base=PLN&symbols=EUR,USD,PLN')
     .then(response => response.json())
     .then((response) => {
       const timeout = setTimeout(() => {
-        setMultiplierDollar(response.rates.USD);
-        setMultiplierEuro(response.rates.EUR);
+        localStorage.setItem("usd", JSON.stringify(response.rates.USD));
+        localStorage.setItem("eur", JSON.stringify(response.rates.EUR));
         setMessageFromApi("ok");
-      }, 3000);
-  
-      return () => clearTimeout(timeout);
-
-    })
+       }, 3000);
+       return () => clearTimeout(timeout);
+    }
+    )
     .catch((error) => {
-      console.error("SERVER UNREACHABLE", error);
-      setMessageFromApi("error");
-      //set resultValue = "SERWER NIEOSIĄGALNY - Być może nie masz dostępu do internetu, lub baza danych dla walut jest Offline - spróbuj później"
-      // zrobić onload i wrzucić to do innego pliku bo musi zrobic edit całego forma - być może użyć szblonu do forma i pozmieniać konkretne wartości, wtedy trzeba zmienić wszystko w form w app.js
-      //konwersja z api do json
+      if (multiplierDollar && multiplierEuro) {
+        setMessageFromApi("almostError");
+      const timeout = setTimeout(() => {
+        console.error("SERVER UNREACHABLE, I'M USING LOCAL DATA", error);
+        setMessageFromApi("almostOk");
+       }, 8000);
+       return () => clearTimeout(timeout);
+      }
+      else {
+        console.error("SERVER UNREACHABLE", error);
+        setMessageFromApi("error");
+      }
     });
-    
   }, []);
 
   return { multiplierDollar, multiplierEuro, messageFromApi }
-
+  
 };
 
 export default useCurrencyRates;
