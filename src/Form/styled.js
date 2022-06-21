@@ -42,3 +42,16 @@ export const FormButton = styled.button`
 export const Error = styled.p` 
  color: #B50000;
 `;
+export const Img = styled.img` 
+ width: 70px;
+ height: 70px;
+ animation: rotation 6s infinite linear;
+ @keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+`;
