@@ -1,6 +1,3 @@
-// poprawić stylowanie (nazwy) oraz formatowanie
-
-
 import "./App.css";
 import React from "react";
 import Form from "./Form";
@@ -10,7 +7,6 @@ import Footer from "./Footer";
 import useCurrencyRates from "./currencyRates.js";
 
 function App() {
-
   const focus = React.useRef(null);
   const [currentCurrency, setCurrency] = React.useState("PLN");
   const [currentPlaceHolder, setCurrentPlaceHolder] = React.useState(
@@ -20,13 +16,16 @@ function App() {
   const [messageValue, setMessageValue] = React.useState(
     "Wybrałeś walutę Złoty (PLN)"
   );
-  const {multiplierDollar, multiplierEuro} = useCurrencyRates();
+  const { multiplierDollar, multiplierEuro } = useCurrencyRates();
   const [resultValue, setResultValue] = React.useState("=");
-  
-  const currencyResult = (currentCurrency) => {
 
+  const currencyResult = (currentCurrency) => {
     if (currentCurrency === "PLN") {
-      displayingResult(currentCurrency, inputValue * multiplierDollar, inputValue * multiplierEuro);
+      displayingResult(
+        currentCurrency,
+        inputValue * multiplierDollar,
+        inputValue * multiplierEuro
+      );
     }
     if (currentCurrency === "USD") {
       displayingResult(currentCurrency, inputValue / multiplierDollar);
@@ -37,9 +36,11 @@ function App() {
   };
 
   const displayingResult = (currentCurrency, result, resultSecond) => {
-    setResultValue(currentCurrency === "PLN"
-      ? `= ${result.toFixed(2)} USD \n ↕ \n= ${resultSecond.toFixed(2)} EUR`
-      : `= ${result.toFixed(2)} PLN`);
+    setResultValue(
+      currentCurrency === "PLN"
+        ? `= ${result.toFixed(2)} USD \n ↕ \n= ${resultSecond.toFixed(2)} EUR`
+        : `= ${result.toFixed(2)} PLN`
+    );
   };
 
   const onZlotyButtonClick = () => {

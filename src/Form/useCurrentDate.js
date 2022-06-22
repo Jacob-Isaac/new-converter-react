@@ -5,11 +5,11 @@ const useCurrentDate = () => {
 
   React.useEffect(() => {
     const intervalID = setInterval(() => {
-     setTime(new Date());
+      setTime(new Date());
     }, 1000);
 
     return () => {
-      clearInterval(intervalID)
+      clearInterval(intervalID);
     };
   }, []);
   return time;

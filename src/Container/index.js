@@ -1,10 +1,5 @@
 import { Flex } from "../styled.js";
 
+const Container = ({ children }) => <Flex>{children}</Flex>;
 
-const Container = ({ children }) => (
-    <Flex>
-        {children}
-    </Flex>
-);
-
-export default Container; 
+export default Container;

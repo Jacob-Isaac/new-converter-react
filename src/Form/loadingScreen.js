@@ -1,11 +1,11 @@
 import cog from "./cog.png";
-import {Img} from "./styled";
+import { Cog } from "./styled";
 
 const LoadingScreen = () => (
- <>
+  <>
     <h3>Ładowanie kursu walut</h3>
-    <Img src={cog} alt= "Ładujemy..."></Img>
-</>
+    <Cog src={cog} alt="Ładujemy..."></Cog>
+  </>
 );
 
-export default LoadingScreen ;
+export default LoadingScreen;
