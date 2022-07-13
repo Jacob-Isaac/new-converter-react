@@ -8,6 +8,12 @@ const useCurrencyRates = () => {
 
   React.useEffect(() => {
     fetch("https://api.exchangerate.host/latest?base=PLN&symbols=EUR,USD,PLN")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response;
+      })
       .then((response) => response.json())
       .then((response) => {
         const timeout = setTimeout(() => {
